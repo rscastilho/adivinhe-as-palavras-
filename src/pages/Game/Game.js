@@ -4,6 +4,10 @@ import Palavras from '../../components/Palavras/Palavras';
 import { listaPalavras } from '../../Data/data';
 import styles from './Game.module.css'
 import { FaHeart } from 'react-icons/fa'
+import { toast, ToastContainer } from 'react-toastify';  
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const Game = () => {
     const [palavras] = useState(listaPalavras)
@@ -16,22 +20,24 @@ const Game = () => {
     const [coracao, setCoracao] = useState([]);
     const [pontuacao, setPontuacao] = useState(0);
     const inputLetra = useRef();
-
+    
+    
     const mostrarDica = useCallback(() => {
         let selecionaDica = Object.keys(palavras);
         let dicaAleatoria = selecionaDica[Math.floor(Math.random() * Object.keys(selecionaDica).length)]
-        let palavraAleatoria = palavras[dicaAleatoria][Math.floor(Math.random() * palavras[dicaAleatoria].length)]
+        let palavraAleatoria = palavras[dicaAleatoria][Math.floor(Math.random() * palavras[dicaAleatoria].length)];
         return { dicaAleatoria, palavraAleatoria }
     }, [palavras])
-
+    
     const gerarforca = useCallback(() => {
         const { palavraAleatoria, dicaAleatoria } = mostrarDica();
-        let letras = palavraAleatoria.split("");
+        let letras = palavraAleatoria.toLowerCase().split("");
         letras = letras.map((x) => x.toLowerCase());
         setLetras(letras);
         setDica(dicaAleatoria);
+        
     }, []);
-
+    
     const verificaLetra = (letraDigitada) => {
         let digitoMin = letraDigitada.toLowerCase();
         if (letrasCertas.includes(letraDigitada) || letrasErradas.includes(letraDigitada)) {
@@ -46,7 +52,7 @@ const Game = () => {
             setPontuacao((x) => x - 100)
         }
     }
-
+    
     const coracoes = useCallback(() => {
         let qtd = [];
         for (let i = 0; i < vidas; i++) {
@@ -54,12 +60,17 @@ const Game = () => {
             setCoracao(qtd)
         }
     }, [vidas])
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-        inputLetra.current.focus();
-        setLetra('')
-        verificaLetra(letra)
+        if (letra.trim() === '' || letra === null){
+            toast.warning("Digite uma letra para continuar", {position:"bottom-center", autoClose:1000});
+            inputLetra.current.focus();
+        } else{
+            inputLetra.current.focus();
+            verificaLetra(letra)
+            setLetra('')
+        }
     }
 
     const recomecar = useCallback(() => {
@@ -148,10 +159,11 @@ const Game = () => {
                             maxLength={1}
                             ref={inputLetra}
                             value={letra}
-                            onChange={(e) => setLetra(e.target.value)}
+                            onChange={(e) => setLetra(e.target.value.toLocaleLowerCase())}
                         />
                         <button
                             className={styles.botao}
+                            // disabled={letra ? false : true}
                         >
                             Verificar
                         </button>
@@ -171,6 +183,7 @@ const Game = () => {
                             ))}
                         </div>
                     }
+                <ToastContainer/>
                 </>
             }
 
