@@ -66,6 +66,7 @@ const Game = () => {
         if (letra.trim() === '' || letra === null){
             toast.warning("Digite uma letra para continuar", {position:"bottom-center", autoClose:1000});
             inputLetra.current.focus();
+            return;
         } else{
             inputLetra.current.focus();
             verificaLetra(letra)

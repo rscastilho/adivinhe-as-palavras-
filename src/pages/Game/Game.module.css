@@ -95,6 +95,8 @@
 
 
 .letrasErradas {
+    display: flex;
+    flex-direction: column;
     margin-top: 25px;
     color: #fff;
     font-weight: bold;
@@ -107,13 +109,13 @@
     .form {
         display: flex;
         width: 100%;
-        margin-left: 90px;
+        margin-left: 70px;
         align-items: baseline;
+        margin-right: 45px;
     }
 
 
     .botao {
-
         text-align: center;
         margin-top: 5px;
         margin-left: 15px;
@@ -127,13 +129,14 @@
         background-color: rgb(43, 70, 226);
         border-radius: 50px;
         cursor: pointer;
+        
     }
 
     .botao:hover {
 
         text-align: center;
         margin-top: 5px;
-        margin-left: 5px;
+        margin-left: 15px;
         font-size: 1.2em;
         padding-top: 10px;
         padding-bottom: 10px;
