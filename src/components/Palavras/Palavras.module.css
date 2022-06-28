@@ -1,0 +1,63 @@
+
+.caixaDica{
+    font-size: 2em;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+           
+}
+
+.caixaPalavra{
+    border: 15px yellow solid;
+    margin: 10PX;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+.caixaBranca{
+    font-size: 7em;
+    margin: 3px;
+    padding: 15px;
+    width: 200px;
+    line-height: 1.4em;
+    background-color: #fff;
+    border-radius: 5px;
+    color:  rgb(43, 70, 226);
+    text-transform: uppercase;
+        
+}
+
+@media screen and (max-width: 700px)  { 
+    .caixaPrincipal{
+        width: 100%;
+       
+    }
+    
+    .caixaPalavra{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content:center;
+        width: 80%;
+                
+    }
+
+    .caixaBranca{
+        display: inherit;
+        font-size: 2em;
+        margin: 3px;
+        padding: 10px;
+        width: 100%;
+        line-height: 1.4em;
+        background-color: #fff;
+        border-radius: 5px;
+        color:  rgb(43, 70, 226);
+        text-transform: uppercase;
+        text-align: center;
+            
+    }
+    
+}

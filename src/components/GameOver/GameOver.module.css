@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+.boxPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.gameOver{
+    font-family: Indie Flower;
+    font-size: 4.5em;
+    color: yellow;
+    letter-spacing:.5em ;
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    -webkit-text-stroke-width:.1px ;
+    -webkit-text-stroke-color:red ;
+    
+
+}
+
+.botao{
+        
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 1.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color:  #fff;
+    border: 5px solid yellow;
+    background-color: rgb(43, 70, 226);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.botao:hover{
+        
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-size: 1.8em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color:  rgb(43, 70, 226);
+    border: 5px solid yellow;
+    background-color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px)  { 
+
+    .gameOver{
+        font-size: 3.5em;
+        letter-spacing:.2em ;
+        text-align: center;
+
+    }
+}
