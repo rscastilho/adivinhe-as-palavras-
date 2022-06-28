@@ -50,11 +50,12 @@
 
     .caixaBranca{
         display: inherit;
-        font-size: 1.5em;
+        font-size: 1em;
         margin: 3px;
-        padding: 8px;
+        padding: 9px;
+        padding-right: 1px;
         width: 100%;
-        line-height: 1.4em;
+        line-height: 1.5em;
         background-color: #fff;
         border-radius: 5px;
         color:  rgb(43, 70, 226);
