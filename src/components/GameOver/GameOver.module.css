@@ -8,9 +8,9 @@
 
 .pontuacaoFinal{
     font-family: Indie Flower;
-    font-size: 1.5em;
-    letter-spacing:.1em ;
-    font-weight: 900;
+    font-size: 1.9em;
+    letter-spacing:.2em ;
+    font-weight: 800;
     color: #fff;
     -webkit-text-stroke-width:.1px ;
     -webkit-text-stroke-color:yellow ;
@@ -19,9 +19,9 @@
 
 .gameOver{
     font-family: Indie Flower;
-    font-size: 4.5em;
+    font-size: 4.8em;
     color: yellow;
-    letter-spacing:.5em ;
+    letter-spacing:.4em ;
     font-weight: bold;
     align-items: center;
     display: flex;
@@ -70,9 +70,18 @@
 
 @media screen and (max-width: 700px)  { 
 
+    .pontuacaoFinal{
+        font-family: Indie Flower;
+        font-size: 1.3em;
+        font-weight: 400;
+        color:yellow;
+        -webkit-text-stroke-width:.4px ;
+        -webkit-text-stroke-color:yellowgreen;
+    }
+
     .gameOver{
-        font-size: 3.5em;
-        letter-spacing:.2em ;
+        font-size: 3em;
+        letter-spacing:.1em ;
         text-align: center;
 
     }
