@@ -202,10 +202,11 @@
 
     .letrasErradas {
         display: flex;
-        margin-top: 25px;
-        color: #fff;
+        margin: 0 auto;
+        color: yellow;
         font-weight: bold;
         font-size: 1em;
+        padding: 2.5px;
     
     }
 
