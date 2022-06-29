@@ -54,11 +54,13 @@
     }
 
     .caixaBranca{
-        display: inherit;
+        display: flex;
+        flex-direction: row;
         font-size: 1.2em;
         margin: 3px;
         padding: 12px;
-        padding-right: 1px;
+        margin-right: 1px;
+        /* padding-right: 1px; */
         line-height: 1.5em;
         background-color: #fff;
         border-radius: 5px;
@@ -67,6 +69,7 @@
         text-align: center;
         z-index: -1;
         overflow-x: hidden;
+        justify-content:center;
         
             
     } 
