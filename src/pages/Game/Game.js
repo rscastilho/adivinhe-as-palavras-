@@ -4,7 +4,7 @@ import Palavras from '../../components/Palavras/Palavras';
 import { listaPalavras } from '../../Data/data';
 import styles from './Game.module.css'
 import { FaHeart } from 'react-icons/fa'
-import { toast, ToastContainer } from 'react-toastify';  
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -20,24 +20,24 @@ const Game = () => {
     const [coracao, setCoracao] = useState([]);
     const [pontuacao, setPontuacao] = useState(0);
     const inputLetra = useRef();
-    
-    
+
+
     const mostrarDica = useCallback(() => {
         let selecionaDica = Object.keys(palavras);
         let dicaAleatoria = selecionaDica[Math.floor(Math.random() * Object.keys(selecionaDica).length)]
         let palavraAleatoria = palavras[dicaAleatoria][Math.floor(Math.random() * palavras[dicaAleatoria].length)];
         return { dicaAleatoria, palavraAleatoria }
     }, [palavras])
-    
+
     const gerarforca = useCallback(() => {
         const { palavraAleatoria, dicaAleatoria } = mostrarDica();
         let letras = palavraAleatoria.toLowerCase().split("");
         letras = letras.map((x) => x.toLowerCase());
         setLetras(letras);
         setDica(dicaAleatoria);
-        
+
     }, []);
-    
+
     const verificaLetra = (letraDigitada) => {
         let digitoMin = letraDigitada.toLowerCase();
         if (letrasCertas.includes(letraDigitada) || letrasErradas.includes(letraDigitada)) {
@@ -52,7 +52,7 @@ const Game = () => {
             setPontuacao((x) => x - 100)
         }
     }
-    
+
     const coracoes = useCallback(() => {
         let qtd = [];
         for (let i = 0; i < vidas; i++) {
@@ -60,14 +60,14 @@ const Game = () => {
             setCoracao(qtd)
         }
     }, [vidas])
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (letra.trim() === '' || letra === null){
-            toast.warning("Digite uma letra para continuar", {position:"bottom-center", autoClose:1000});
+        if (letra.trim() === '' || letra === null) {
+            toast.warning("Digite uma letra para continuar", { position: "bottom-center", autoClose: 1000 });
             inputLetra.current.focus();
             return;
-        } else{
+        } else {
             inputLetra.current.focus();
             verificaLetra(letra)
             setLetra('')
@@ -82,7 +82,19 @@ const Game = () => {
         mostrarDica();
         gerarforca();
         setPontuacao(0);
+        inputLetra.current.focus();
     }, [gerarforca, mostrarDica])
+
+    const pular = useCallback(() => {
+        setVidas((x) => x - 1);
+        setLetra('');
+        setLetrasCertas('');
+        setLetrasErradas('');
+        mostrarDica();
+        gerarforca();
+        setPontuacao(pontuacao);
+        inputLetra.current.focus();
+    }, [gerarforca, mostrarDica, pontuacao])
 
     const proximaPalavra = useCallback(() => {
         mostrarDica();
@@ -91,12 +103,13 @@ const Game = () => {
         setLetrasErradas('');
     }, [gerarforca, mostrarDica])
 
-    useEffect(() => {
+    useMemo(() => {
         const unicaletra = [...new Set(letras)]
         if (letrasCertas.length === unicaletra.length) {
+            // toast.success("Parabéns! Você acertou a palavra. Vamos para a próxima", { autoClose: 500, position: 'bottom-center' })
             proximaPalavra();
         }
-    }, [letras, letrasCertas])
+    }, [letras, letrasCertas, proximaPalavra])
 
     useEffect(() => {
         inputLetra.current.focus();
@@ -139,7 +152,7 @@ const Game = () => {
                         </div>
                         <div className={styles.barraVidas}>
                             <p className={styles.pontuacao}>
-                                Pontuação: {pontuacao}
+                                Sua pontuação: <strong>{pontuacao}</strong>
                             </p>
                         </div>
                     </div>
@@ -161,10 +174,11 @@ const Game = () => {
                             ref={inputLetra}
                             value={letra}
                             onChange={(e) => setLetra(e.target.value.toLocaleLowerCase())}
+                            pattern={'[a-zA-Z]'}
+                            required
                         />
                         <button
                             className={styles.botao}
-                            // disabled={letra ? false : true}
                         >
                             Verificar
                         </button>
@@ -175,16 +189,25 @@ const Game = () => {
                         >
                             Resetar
                         </button>
+                        <button
+                            type='button'
+                            className={styles.botao}
+                            onClick={pular}
+                        >
+                            Pular
+                        </button>
                     </form>
                     {letrasErradas &&
-                        <div className={styles.letrasErradas}>
-                            <span className={styles.letrasErradas}> Letras erradas:</span>
-                            {letrasErradas.map((erradas, i) => (
-                                <span key={i} className={styles.letrasErradas}> {erradas}, </span>
-                            ))}
+                        <div className={styles.letrasErradasTitulo}>
+                            <span> Letras erradas:</span>
+                            <div className={styles.letrasErradas}>
+                                {letrasErradas.map((erradas, i) => (
+                                    <span key={i} xclassName={styles.letrasErradas}> {erradas}, </span>
+                                ))}
+                            </div>
                         </div>
                     }
-                <ToastContainer/>
+                    <ToastContainer />
                 </>
             }
 

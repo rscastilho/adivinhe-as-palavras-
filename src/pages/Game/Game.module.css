@@ -94,8 +94,18 @@
 }
 
 
+.letrasErradasTitulo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+
+}
 .letrasErradas {
     display: flex;
+    flex-direction: row;
     margin-top: 25px;
     color: #fff;
     font-weight: bold;
@@ -103,26 +113,52 @@
 
 }
 
+.form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* margin-left: 70px; */
+    /* align-items: baseline; */
+    /* margin-right: 45px; */
+    /* margin: 10px 70% 10px auto; */
+    
+
+}
+
 
 @media screen and (max-width: 700px) {
     .form {
         display: flex;
+        justify-content: center;
         width: 100%;
-        margin-left: 70px;
-        align-items: baseline;
-        margin-right: 45px;
+        /* margin-left: 70px; */
+        /* align-items: baseline; */
+        /* margin-right: 45px; */
+        /* margin: 10px 70% 10px auto; */
+    }
+    .inputLetra {
+        margin-top: 10px; 
+        margin-left: 18px;
+        display: inline;
+        height: 45px;
+        width: 45px;
+        padding: 5px;
+        font-size: 2.5em;
+        text-align: center;
+        border: 0;
+        border-radius: 5px;
+        color: rgb(43, 70, 226);
     }
 
 
     .botao {
         text-align: center;
-        margin-top: 5px;
-        margin-left: 15px;
-        font-size: 1.2em;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 25px;
-        padding-right: 25px;
+        margin: auto 0 10px 10px;
+        font-size: 1em;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
         color: #fff;
         border: 5px solid yellow;
         background-color: rgb(43, 70, 226);
@@ -132,45 +168,46 @@
     }
 
     .botao:hover {
-
         text-align: center;
-        margin-top: 5px;
-        margin-left: 15px;
-        font-size: 1.2em;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 25px;
-        padding-right: 25px;
-        color: rgb(43, 70, 226);
+        margin: auto 0 10px 10px;
+        font-size: 1em;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color:  #2b46e2;
         border: 5px solid yellow;
         background-color: #fff;
         border-radius: 50px;
         cursor: pointer;
+        
     }
 
     .vidas {
         color: #fff;
-        font-size: 1em;
-        display: flex;
-        justify-content: right;
-        width: 20%;
+        font-size: 1.2em;
+        /* display: flex; */
+        /* justify-content: right; */
+        text-align: center;
+        width: 160px;
         display: none;
     }
 
     .barraVidas {
         display: flex;
-        width: 50%;
+        width: 100%;
         text-align: center;
         justify-content: center;
 
     }
     .pontuacao {
-        margin-right: 5px;
+        /* margin-right: 5px; */
         color: #fff;
-        font-size: 1.1em;
-        text-align: right;
-        flex-direction: row;
-        width: 120%;
+        font-size: 1.2em;
+        text-align:right;
+        width: 180px;
+        
+        
     }
 
     .letrasErradas {
@@ -181,6 +218,8 @@
         font-size: 1em;
     
     }
+
+    
 
 
 }

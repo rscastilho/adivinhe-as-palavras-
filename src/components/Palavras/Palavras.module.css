@@ -34,36 +34,41 @@
 
 @media screen and (max-width: 700px)  { 
     .caixaPrincipal{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
         width: 100%;
-       
-    }
+           }
     
     .caixaPalavra{
         display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content:center;
-        width: 80%;
+        margin: 0 auto;
+        /* display: inherit; */
+        /* text-align: center; */
+        /* align-items: center; */
+        /* justify-content:center; */
+        width: 90%;
         z-index: 100;
                 
     }
 
     .caixaBranca{
         display: inherit;
-        font-size: 1em;
+        font-size: 1.2em;
         margin: 3px;
-        padding: 9px;
+        padding: 12px;
         padding-right: 1px;
-        width: 100%;
         line-height: 1.5em;
         background-color: #fff;
         border-radius: 5px;
         color:  rgb(43, 70, 226);
         text-transform: uppercase;
         text-align: center;
-        z-index: 0;
-        overflow: hidden;
+        z-index: -1;
+        overflow-x: hidden;
+        
             
-    }
+    } 
     
 }
