@@ -132,8 +132,8 @@ const Game = () => {
                 :
                 <>
                     <div className={styles.barraTitulo}>
-                        <div className={styles.barraVidas}>
-                        </div>
+                        {/* <div className={styles.barraVidas}>
+                        </div> */}
                         <div className={styles.barraVidas}>
                             <p className={styles.vidas}> Você tem  {vidas} vidas!</p>
                         </div>
@@ -200,7 +200,7 @@ const Game = () => {
                             <span> Letras erradas:</span>
                             <div className={styles.letrasErradas}>
                                 {letrasErradas.map((erradas, i) => (
-                                    <span key={i} xclassName={styles.letrasErradas}> {erradas}, </span>
+                                    <span key={i} className={styles.letrasErradas}> {erradas}, </span>
                                 ))}
                             </div>
                         </div>

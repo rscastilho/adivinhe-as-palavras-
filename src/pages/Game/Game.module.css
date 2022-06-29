@@ -16,13 +16,14 @@
 .vidas {
     color: #fff;
     font-size: 1.3em;
-    text-align: right;
+    text-align: left;
     flex-direction: row;
     width: 100%;
+    margin-left: 50px;
 }
 
 .pontuacao {
-    margin-right: 20px;
+    margin-right: 50px;
     color:yellow;
     font-weight: 400;
     font-size: 1.3em;
@@ -47,7 +48,7 @@
 }
 
 .inputLetra {
-    margin-top: 15px;
+    margin: 0 10px auto;
     display: inline;
     height: 50px;
     width: 50px;
@@ -62,30 +63,24 @@
 .botao {
 
     text-align: center;
-    margin-top: 10px;
-    margin-left: 25px;
-    font-size: 1.8em;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
+    margin: auto 5px auto 5px;
+    font-size: 1.5em;
+    padding: 0px 15px 0px 15px;
     color: #fff;
     border: 5px solid yellow;
     background-color: rgb(43, 70, 226);
-    border-radius: 50px;
+    border-radius: 100px;
     cursor: pointer;
+    width: 150px;
+    height: 45px;
 }
 
 .botao:hover {
 
     text-align: center;
-    margin-top: 10px;
-    margin-left: 25px;
+    margin: auto 5px auto 5px;
     font-size: 1.8em;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 0px 15px 0px 15px;
     color: rgb(43, 70, 226);
     border: 5px solid yellow;
     background-color: #fff;
@@ -131,11 +126,9 @@
         display: flex;
         justify-content: center;
         width: 100%;
-        /* margin-left: 70px; */
-        /* align-items: baseline; */
-        /* margin-right: 45px; */
-        /* margin: 10px 70% 10px auto; */
+        
     }
+
     .inputLetra {
         margin-top: 10px; 
         margin-left: 0 auto;
@@ -152,13 +145,10 @@
 
 
     .botao {
+        margin: auto 5px auto 5px;
+        padding: 0px 15px 0px 15px;
         text-align: center;
-        margin: auto 0 10px 5px;
         font-size: 1em;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 15px;
-        padding-right: 20px;
         color: #fff;
         border: 5px solid yellow;
         background-color: rgb(43, 70, 226);
@@ -168,13 +158,10 @@
     }
 
     .botao:hover {
+        margin: auto 5px auto 5px;
+        padding: 0px 15px 0px 15px;
         text-align: center;
-        margin: auto 0 10px 5px;
         font-size: 1em;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 15px;
-        padding-right: 20px;
         color:  #2b46e2;
         border: 5px solid yellow;
         background-color: #fff;
