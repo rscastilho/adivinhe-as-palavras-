@@ -126,10 +126,8 @@ const Game = () => {
 
             {!vidas ?
                 <GameOver
-                    setVidas={setVidas}
-                    setLetrasCertas={setLetrasCertas}
-                    setLetrasErradas={setLetrasErradas}
                     recomecar={recomecar}
+                    pontuacao={pontuacao}
                 />
                 :
                 <>
