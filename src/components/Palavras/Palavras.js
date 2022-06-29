@@ -15,7 +15,10 @@ const Palavras = ({ dica, letras, letrasCertas }) => {
                         </>
                         :
                         <>
-                            <span className={styles.caixaBranca}>_</span>
+                            {(letra === '-' || letra === ' ') ?
+                                <span key={i} className={styles.caixaBranca}>  -   </span> :
+                                <span className={styles.caixaBranca}>_</span>
+                            }
                         </>
                 ))}
             </div>
