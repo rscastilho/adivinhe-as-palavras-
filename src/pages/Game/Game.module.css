@@ -137,7 +137,7 @@
         padding: 4px;
         font-size: 2.5em;
         text-align: center;
-        border: 0;
+        border: 2.5px solid rgb(239, 224, 16);
         border-radius: 5px;
         color: rgb(43, 70, 226);
     }

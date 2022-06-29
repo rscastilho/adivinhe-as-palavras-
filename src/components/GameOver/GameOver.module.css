@@ -16,7 +16,6 @@
     -webkit-text-stroke-color:yellow ;
 }
 
-
 .gameOver{
     font-family: Indie Flower;
     font-size: 4.8em;
@@ -30,8 +29,6 @@
     margin-bottom: 150px;
     -webkit-text-stroke-width:.1px ;
     -webkit-text-stroke-color:red ;
-    
-
 }
 
 .botao{
@@ -69,7 +66,6 @@
 }
 
 @media screen and (max-width: 700px)  { 
-
     .pontuacaoFinal{
         font-family: Indie Flower;
         font-size: 1.3em;
@@ -83,6 +79,5 @@
         font-size: 3em;
         letter-spacing:.1em ;
         text-align: center;
-
     }
 }
