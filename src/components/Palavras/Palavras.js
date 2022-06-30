@@ -8,15 +8,11 @@ const Palavras = ({ dica, letras, letrasCertas }) => {
             <div className={styles.caixaPalavra}>
                 {letras.map((letra, i) => (
                     letrasCertas.includes(letra) ?
-                        <>
-                            <span key={i} className={styles.caixaBranca}>
-                                {letra}
-                            </span>
-                        </>
+                        <span key={i} className={styles.caixaBranca}>{letra}</span>
                         :
                         <>
                             {(letra === '-' || letra === ' ') ?
-                                <span key={i} className={styles.caixaBranca}>  -   </span> :
+                                <span key={i} className={styles.caixaBranca}>-</span> :
                                 <span className={styles.caixaBranca}>_</span>
                             }
                         </>

@@ -7,8 +7,6 @@ import { FaHeart } from 'react-icons/fa'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 const Game = () => {
     const [palavras] = useState(listaPalavras)
     const [dica, setDica] = useState('');
@@ -21,6 +19,7 @@ const Game = () => {
     const [pontuacao, setPontuacao] = useState(0);
     const inputLetra = useRef();
 
+    //carrega palavras do arquivo data e seleciona randomicamente a palavra secreta e dicas. retornando a dicaaleatoria e palavraaleatoria para utilizacao em outro compomente;
 
     const mostrarDica = useCallback(() => {
         let selecionaDica = Object.keys(palavras);
@@ -29,30 +28,34 @@ const Game = () => {
         return { dicaAleatoria, palavraAleatoria }
     }, [palavras])
 
+    //converte a palavra randomica para minuscula para um array. setando as letras no estado
     const gerarforca = useCallback(() => {
         const { palavraAleatoria, dicaAleatoria } = mostrarDica();
         let letras = palavraAleatoria.toLowerCase().split("");
         letras = letras.map((x) => x.toLowerCase());
         setLetras(letras);
         setDica(dicaAleatoria);
-
     }, []);
+
+    //verifica se a letra ja foi digitada
+    //se estiver certa e nao foi digitada inclui no estado e acrestanta a pontuacao, o mesmo para letras erradas
 
     const verificaLetra = (letraDigitada) => {
         let digitoMin = letraDigitada.toLowerCase();
         if (letrasCertas.includes(letraDigitada) || letrasErradas.includes(letraDigitada)) {
             return;
         }
-        if (letras.includes(letraDigitada)) {
-            setLetrasCertas((x) => [...x, digitoMin])
-            setPontuacao((x) => x + 100)
+        if (letras.includes(digitoMin)) {
+            setLetrasCertas((x) => [...x, digitoMin]);
+            setPontuacao((x) => x + 100);
         } else {
-            setLetrasErradas((x) => [...x, digitoMin])
+            setLetrasErradas((x) => [...x, digitoMin]);
             setVidas((x) => x - 1);
-            setPontuacao((x) => x - 100)
+            setPontuacao((x) => x - 100);
         }
     }
 
+    //cria dinamicamente a quantidade de coracoes de acordo com a quantidade de vidas
     const coracoes = useCallback(() => {
         let qtd = [];
         for (let i = 0; i < vidas; i++) {
@@ -61,6 +64,7 @@ const Game = () => {
         }
     }, [vidas])
 
+    //aciona a funcao verificar letras
     const handleSubmit = (e) => {
         e.preventDefault()
         if (letra.trim() === '' || letra === null) {
@@ -74,6 +78,8 @@ const Game = () => {
         }
     }
 
+    //utilizado para recomecar o jogo, pegando as principais funcionalidaes e zerando.
+
     const recomecar = useCallback(() => {
         setVidas(5);
         setLetra('');
@@ -83,7 +89,9 @@ const Game = () => {
         gerarforca();
         setPontuacao(0);
         inputLetra.current.focus();
-    }, [gerarforca, mostrarDica])
+        }, [gerarforca, mostrarDica])
+
+        //pula a palavra, tira uma vida e mantem a pontuacao.
 
     const pular = useCallback(() => {
         setVidas((x) => x - 1);
@@ -96,6 +104,9 @@ const Game = () => {
         inputLetra.current.focus();
     }, [gerarforca, mostrarDica, pontuacao])
 
+
+    //invocada quando a palavra esta certa e completa
+
     const proximaPalavra = useCallback(() => {
         mostrarDica();
         gerarforca();
@@ -103,18 +114,29 @@ const Game = () => {
         setLetrasErradas('');
     }, [gerarforca, mostrarDica])
 
+    //valida se a palavra esta certa para passar para a proxima
+
     useMemo(() => {
         const unicaletra = [...new Set(letras)]
         if (letrasCertas.length === unicaletra.length) {
-            // toast.success("Parabéns! Você acertou a palavra. Vamos para a próxima", { autoClose: 500, position: 'bottom-center' })
             proximaPalavra();
         }
     }, [letras, letrasCertas, proximaPalavra])
+    
+    
+    //focus no input
+    useEffect(()=>{
+        inputLetra.current.focus();
+    },[])
+
+
 
     useEffect(() => {
         inputLetra.current.focus();
         recomecar();
     }, [recomecar])
+
+    //monitora os coracoes
 
     useMemo(() => {
         coracoes()
@@ -122,8 +144,6 @@ const Game = () => {
 
     return (
         <div className={styles.caixaPrincipal}>
-
-
             {!vidas ?
                 <GameOver
                     recomecar={recomecar}
@@ -132,12 +152,9 @@ const Game = () => {
                 :
                 <>
                     <div className={styles.barraTitulo}>
-                        {/* <div className={styles.barraVidas}>
-                        </div> */}
                         <div className={styles.barraVidas}>
                             <p className={styles.vidas}> Você tem  {vidas} vidas!</p>
                         </div>
-
                         <div className={styles.barraVidas}>
                             {coracao.map((x, i) => (
                                 <p key={i}>
@@ -160,7 +177,6 @@ const Game = () => {
                         letra={letra}
                         letrasCertas={letrasCertas}
                     />
-
                     <form
                         onSubmit={handleSubmit}
                         className={styles.form}
@@ -172,7 +188,7 @@ const Game = () => {
                             ref={inputLetra}
                             value={letra}
                             onChange={(e) => setLetra(e.target.value.toLocaleLowerCase())}
-                            pattern={'[a-zA-Z]'}
+                            pattern={'[a-zÃ-úA-Z-]{1}'}
                             required
                         />
                         <button
@@ -208,7 +224,6 @@ const Game = () => {
                     <ToastContainer />
                 </>
             }
-
         </div>
     )
 }

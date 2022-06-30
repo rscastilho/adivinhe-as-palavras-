@@ -1,3 +1,7 @@
+.form{
+    margin:10px;
+}
+
 .barraTitulo {
     display: flex;
     width: 100%;
@@ -50,14 +54,15 @@
 .inputLetra {
     margin: 0 10px auto;
     display: inline;
-    height: 50px;
-    width: 50px;
-    padding: 10px;
-    font-size: 3em;
+    height: 30px;
+    width: 30px;
+    padding:12px;
+    font-size: 2.8em;
     text-align: center;
-    border: 0;
+    border: 3px solid yellow;
     border-radius: 5px;
     color: rgb(43, 70, 226);
+
 }
 
 .botao {
@@ -126,16 +131,17 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        margin-top: 10px;
         
     }
 
     .inputLetra {
         margin: 5px 10px 5px 10px;
         display: inline;
-        height: 45px;
-        width: 45px;
-        padding: 4px;
-        font-size: 2.5em;
+        height: 35px;
+        width: 35px;
+        padding: 3px;
+        font-size: 2em;
         text-align: center;
         border: 2.5px solid rgb(239, 224, 16);
         border-radius: 5px;
