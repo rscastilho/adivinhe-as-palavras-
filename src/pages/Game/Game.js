@@ -52,6 +52,8 @@ const Game = () => {
             setLetrasErradas((x) => [...x, digitoMin]);
             setVidas((x) => x - 1);
             setPontuacao((x) => x - 100);
+            window.navigator.vibrate(500);
+
         }
     }
 

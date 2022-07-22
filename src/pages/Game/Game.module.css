@@ -1,5 +1,5 @@
-.form{
-    margin:10px;
+.form {
+    margin: 10px;
 }
 
 .barraTitulo {
@@ -13,7 +13,7 @@
     width: 80%;
     text-align: center;
     justify-content: center;
-    
+
 
 }
 
@@ -28,7 +28,7 @@
 
 .pontuacao {
     margin-right: 50px;
-    color:yellow;
+    color: yellow;
     font-weight: 400;
     font-size: 1.3em;
     text-align: right;
@@ -56,7 +56,7 @@
     display: inline;
     height: 30px;
     width: 30px;
-    padding:12px;
+    padding: 12px;
     font-size: 2.8em;
     text-align: center;
     border: 3px solid yellow;
@@ -103,6 +103,7 @@
     font-size: 1.2em;
 
 }
+
 .letrasErradas {
     display: flex;
     flex-direction: row;
@@ -121,18 +122,20 @@
     /* align-items: baseline; */
     /* margin-right: 45px; */
     /* margin: 10px 70% 10px auto; */
-    
+
 
 }
 
 
 @media screen and (max-width: 700px) {
+
+
     .form {
         display: flex;
         justify-content: center;
         width: 100%;
         margin-top: 10px;
-        
+
     }
 
     .inputLetra {
@@ -147,6 +150,7 @@
         border-radius: 5px;
         color: rgb(43, 70, 226);
     }
+
     .coracaoImg {
         width: 30px;
         margin: 0 auto;
@@ -163,7 +167,7 @@
         background-color: rgb(43, 70, 226);
         border-radius: 50px;
         cursor: pointer;
-        
+
     }
 
     .botao:hover {
@@ -171,12 +175,12 @@
         padding: 0px 15px 0px 15px;
         text-align: center;
         font-size: 1em;
-        color:  #2b46e2;
+        color: #2b46e2;
         border: 2.5px solid yellow;
         background-color: #fff;
         border-radius: 50px;
         cursor: pointer;
-        
+
     }
 
     .vidas {
@@ -196,14 +200,15 @@
         justify-content: center;
 
     }
+
     .pontuacao {
         /* margin-right: 5px; */
         color: #fff;
         font-size: 1.2em;
-        text-align:right;
+        text-align: right;
         width: 180px;
-        
-        
+
+
     }
 
     .letrasErradas {
@@ -213,10 +218,10 @@
         font-weight: bold;
         font-size: 1em;
         padding: 2.5px;
-    
+
     }
 
-    
+
 
 
 }
